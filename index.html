@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Molecule Viewer</title>
+  </head>
+  <body>
+    <h1>Molecule Viewer</h1>
+    <h2>Upload a Molecule</h2>
+    <form id="upload-form" enctype="multipart/form-data">
+      <p>
+        <input type="file" id="sdf_file" name="file"/>
+      </p>
+      <p>
+        <input type="text" id="molecule_name" name="name" placeholder="Enter molecule name"/>
+      </p>
+      <p>
+        <button type="submit">Upload</button>
+      </p>
+    </form>
+    <h2>Select a Molecule</h2>
+    <form action="/select_molecule" method="get">
+      <p>
+        <select id="molecule_dropdown" name="name">
+          <option value="">Select a molecule</option>
+        </select>
+      </p>
+      <p>
+        <button type="submit">Select</button>
+      </p>
+    </form>    
+    <script>
+      function populateDropdown(moleculeNames) {
+          const dropdown = document.getElementById("molecule_dropdown");
+
+          // Remove all existing options
+          while (dropdown.firstChild) {
+              dropdown.firstChild.remove();
+          }
+
+          // Add new options
+          moleculeNames.forEach((name) => {
+              const option = document.createElement("option");
+              option.value = name;
+              option.textContent = name;
+              dropdown.appendChild(option);
+          });
+      }
+
+      // Listen for form submission event
+      document.getElementById("upload-form").addEventListener("submit", (event) => {
+          event.preventDefault(); // Prevent form from submitting normally
+          const form = event.target;
+          const formData = new FormData(form);
+          fetch("/upload", { method: "POST", body: formData })
+              .then((response) => {
+                  if (response.ok) {
+                      alert("Molecule uploaded and saved successfully");
+                      fetch("/get_molecules")
+                          .then((response) => response.text())
+                          .then((moleculeNamesText) => {
+                              const moleculeNames = moleculeNamesText.split("\n");
+                              populateDropdown(moleculeNames);
+                          })
+                          .catch((error) => console.error("Error fetching molecules:", error));
+                      form.reset(); // Clear the form after successful upload
+                  } else {
+                      alert("Failed to upload molecule");
+                  }
+              })
+              .catch((error) => console.error("Error uploading molecule:", error));
+      });
+
+      // Load molecules into dropdown menu
+      fetch("/get_molecules")
+          .then((response) => response.text())
+          .then((moleculeNamesText) => {
+              const moleculeNames = moleculeNamesText.split("\n");
+              populateDropdown(moleculeNames);
+          })
+          .catch((error) => console.error("Error fetching molecules:", error));
+    </script>
+  </body>
+</html>
