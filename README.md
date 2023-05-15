@@ -6,8 +6,8 @@ There are only 4 elements currently hardcoded into the application (Hydrogen, Ca
   More elements can easily be added to the server.py file.
 
 Further improvements to be made: 
-  Allow the user to add elements themselves on the server, 
-  Improve the GUI so it looks better
+  Allow the user to add elements on the server, 
+  Improve the GUI so it looks better, 
   Add the ability to rotate the molecule
 
 
