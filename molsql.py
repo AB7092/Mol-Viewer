@@ -1,5 +1,4 @@
-# Name: Adarsh Bhavnagariya (student ID: 1096488)
-# UniversityofGuelph Email: abhavnag@uoguelph.ca
+# Name: Adarsh Bhavnagariya
 # Program Name: molsql.py
 # Last Edited: 04/06/2023
 
