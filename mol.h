@@ -9,8 +9,7 @@
 #define M_PI 3.14159265358979323846
 
 /*
-Name: Adarsh Bhavnagariya (student ID: 1096488)
-UniversityofGuelph Email: abhavnag@uoguelph.ca
+Name: Adarsh Bhavnagariya 
 Program Name: mol.h
 Last Edited: 02/22/2023
 */
