@@ -1,6 +1,5 @@
 # 
-# Name: Adarsh Bhavnagariya (student ID: 1096488)
-# UniversityofGuelph Email: abhavnag@uoguelph.ca
+# Name: Adarsh Bhavnagariya
 # Program Name: makefile
 # Last Edited: 02/25/2023
 # 
