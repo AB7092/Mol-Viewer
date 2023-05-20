@@ -1,7 +1,6 @@
 #include "mol.h"
 /*
-Name: Adarsh Bhavnagariya (student ID: 1096488)
-UniversityofGuelph Email: abhavnag@uoguelph.ca
+Name: Adarsh Bhavnagariya 
 Program Name: mol.c
 Last Edited: 02/22/2023
 */
